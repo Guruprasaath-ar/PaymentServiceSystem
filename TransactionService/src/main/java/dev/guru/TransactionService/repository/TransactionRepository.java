@@ -1,4 +1,9 @@
 package dev.guru.TransactionService.repository;
 
-public interface TransactionRepository {
+import dev.guru.TransactionService.domain.TransactionEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface TransactionRepository extends JpaRepository<TransactionEntity,Long> {
 }

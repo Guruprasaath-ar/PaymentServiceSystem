@@ -1,25 +1,26 @@
 package dev.guru.TransactionService.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
+import jakarta.persistence.*;
+import org.hibernate.sql.Update;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 
 @Entity
-public class TransactionEntity {
+@EntityListeners(AuditingEntityListener.class)
+public class
+TransactionEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long transactionId;
-    @NotNull(message = "Id cannot be empty")
     private Long senderId;
-    @NotNull(message = "Id cannot be empty")
     private Long receiverId;
-    @Positive(message = "Amount cannot be negative")
     private Currency currency;
-    @NotNull(message = "Amount cannot be negative")
     private BigDecimal amount;
+    @CreatedDate
+    @Column(updatable = false)
     private Instant transactionDate;
     private TransactionStatus transactionStatus;
 
@@ -36,7 +37,7 @@ public class TransactionEntity {
     }
 
     public static class Builder{
-        private final Long transactionId;
+        private Long transactionId;
         private Long senderId;
         private Long receiverId;
         private Currency currency;
@@ -44,8 +45,8 @@ public class TransactionEntity {
         private Instant transactionDate;
         private TransactionStatus transactionStatus;
 
-        public Builder(Long transactionId){
-            this.transactionId = transactionId;
+        public Builder(){
+
         }
 
         public Builder withSenderId(Long senderId){
