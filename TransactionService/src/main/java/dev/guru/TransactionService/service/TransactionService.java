@@ -1,23 +1,25 @@
 package dev.guru.TransactionService.service;
 
-import dev.guru.TransactionService.customExceptions.IllegalTransactionArgumentException;
+import dev.guru.TransactionService.customExceptions.TransactionNotFoundException;
 import dev.guru.TransactionService.customExceptions.InvalidRefundException;
+import dev.guru.TransactionService.customExceptions.UnsupportedCurrencyTypeException;
 import dev.guru.TransactionService.domain.Currency;
 import dev.guru.TransactionService.domain.TransactionEntity;
 import dev.guru.TransactionService.domain.TransactionStatus;
 import dev.guru.TransactionService.dto.TransactionRequest;
 import dev.guru.TransactionService.dto.TransactionResponse;
 import dev.guru.TransactionService.repository.TransactionRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
 
 @Service
 public class TransactionService {
 
-    private TransactionRepository transactionRepository;
+    private final TransactionRepository transactionRepository;
+    private final List<Currency> SUPPORTED_CURRENCIES = new ArrayList<>(List.of(Currency.USD, Currency.EUR, Currency.GBP, Currency.INR));
 
     public TransactionService(TransactionRepository transactionRepository) {
         this.transactionRepository = transactionRepository;
@@ -44,33 +46,38 @@ public class TransactionService {
                 .build();
     }
 
-    public boolean validateTransactionRequest(TransactionRequest transactionRequest) {
+    public boolean validateTransactionRequest(TransactionRequest transactionRequest) throws UnsupportedCurrencyTypeException {
         Currency currency = transactionRequest.getCurrency();
-        if(currency.equals(Currency.USD) || currency.equals(Currency.EUR) || currency.equals(Currency.INR) || currency.equals(Currency.GBP)) {
+        if(SUPPORTED_CURRENCIES.contains(currency))
             return true;
-        }
-
-        throw new IllegalArgumentException();
+        throw new UnsupportedCurrencyTypeException();
     }
 
-    public Optional<TransactionEntity> getTransactionById(Long id) {
-        return transactionRepository.findById(id);
+    public TransactionResponse getTransactionById(Long id) {
+        TransactionEntity entity = transactionRepository.findById(id).orElse(null);
+        if(entity == null)
+            throw new TransactionNotFoundException(id);
+
+        return convertTransactionToTransactionResponse(entity,entity.getTransactionStatus().toString());
     }
 
     public TransactionResponse refundTransaction(Long transactionId) throws Exception {
-        TransactionEntity transactionEntity = transactionRepository.findById(transactionId).orElse(null);
-        if(transactionEntity == null)
-            throw new IllegalTransactionArgumentException(transactionId);
-        else if(transactionEntity.getTransactionStatus() == TransactionStatus.REFUNDED)
-            throw new InvalidRefundException("Transaction is already refunded");
-        else if(transactionEntity.getTransactionStatus() != TransactionStatus.SUCCESS)
-            throw new InvalidRefundException("Invalid Transaction Id");
-        transactionEntity.setTransactionStatus(TransactionStatus.REFUNDED);
-        transactionRepository.save(transactionEntity);
-        return convertTransactionToTransactionResponse(transactionEntity,"Transaction has been refunded successfully");
+        TransactionEntity transaction = transactionRepository.findById(transactionId)
+                .orElseThrow(() -> new TransactionNotFoundException(transactionId));
+        transaction.refund();
+        transactionRepository.save(transaction);
+        return convertTransactionToTransactionResponse(transaction,"Transaction has been refunded successfully");
     }
 
-    public List<TransactionEntity> getTransactions() {
-        return transactionRepository.findAll();
+    public List<TransactionResponse> getTransactions(Pageable pageRequest) {
+        List<TransactionEntity> transactionEntities = transactionRepository.findAll(pageRequest).getContent();
+        List<TransactionResponse> responses = new ArrayList<>();
+        for(TransactionEntity transactionEntity : transactionEntities) {
+            if(transactionEntity == null)
+                continue;
+            String message = transactionEntity.getTransactionStatus().toString();
+            responses.add(convertTransactionToTransactionResponse(transactionEntity,message));
+        }
+        return responses;
     }
 }

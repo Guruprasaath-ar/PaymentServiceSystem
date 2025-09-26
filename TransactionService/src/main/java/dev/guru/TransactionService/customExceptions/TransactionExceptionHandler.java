@@ -24,15 +24,23 @@ public class TransactionExceptionHandler {
     }
 
 
-    @ExceptionHandler(IllegalCurrencyException.class)
-    public ResponseEntity<String> handleIllegalCurrencyException(IllegalCurrencyException e) {
-        return new ResponseEntity<>("Unsupported Currency Code", HttpStatus.NOT_FOUND);
+    @ExceptionHandler(UnsupportedCurrencyTypeException.class)
+    public ResponseEntity<String> handleIllegalCurrencyException(UnsupportedCurrencyTypeException e) {
+        return new ResponseEntity<>("Unsupported Currency Code", HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(IllegalTransactionArgumentException.class)
-    public ResponseEntity<String> handleIllegalTransactionArgumentException(IllegalTransactionArgumentException e) {
+    @ExceptionHandler(TransactionNotFoundException.class)
+    public ResponseEntity<String> handleTransactionNotFoundException(TransactionNotFoundException e) {
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
                 .body(e.getMessage());
     }
+
+    @ExceptionHandler(InvalidRefundException.class)
+    public ResponseEntity<String> handleInvalidRefundException(InvalidRefundException e) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(e.getMessage());
+    }
 }
+

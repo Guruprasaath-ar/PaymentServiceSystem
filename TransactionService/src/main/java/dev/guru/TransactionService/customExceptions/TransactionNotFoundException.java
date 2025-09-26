@@ -1,9 +1,9 @@
 package dev.guru.TransactionService.customExceptions;
 
-public class IllegalTransactionArgumentException extends RuntimeException {
+public class TransactionNotFoundException extends RuntimeException {
     private final Long id;
 
-    public IllegalTransactionArgumentException(Long id) {
+    public TransactionNotFoundException(Long id) {
         super("Transaction with id " + id + " not found");
         this.id = id;
     }

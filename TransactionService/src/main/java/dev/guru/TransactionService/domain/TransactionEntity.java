@@ -1,7 +1,8 @@
 package dev.guru.TransactionService.domain;
 
+import dev.guru.TransactionService.customExceptions.InvalidRefundException;
+import dev.guru.TransactionService.customExceptions.TransactionNotFoundException;
 import jakarta.persistence.*;
-import org.hibernate.sql.Update;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -17,11 +18,13 @@ TransactionEntity {
     private Long transactionId;
     private Long senderId;
     private Long receiverId;
+    @Enumerated(EnumType.STRING)
     private Currency currency;
     private BigDecimal amount;
     @CreatedDate
     @Column(updatable = false)
     private Instant transactionDate;
+    @Enumerated(EnumType.STRING)
     private TransactionStatus transactionStatus;
 
     public TransactionEntity() {}
@@ -114,5 +117,14 @@ TransactionEntity {
 
     public void setTransactionStatus(TransactionStatus transactionStatus) {
         this.transactionStatus = transactionStatus;
+    }
+
+    public void refund() throws InvalidRefundException {
+        if(transactionStatus == TransactionStatus.REFUNDED)
+            throw new InvalidRefundException("Transaction is already refunded");
+        else if(transactionStatus != TransactionStatus.SUCCESS)
+            throw new InvalidRefundException("Only successful transactions can be refunded");
+
+        transactionStatus = TransactionStatus.REFUNDED;
     }
 }
