@@ -5,6 +5,7 @@ import dev.guru.TransactionService.customExceptions.UnsupportedCurrencyTypeExcep
 import dev.guru.TransactionService.domain.TransactionEntity;
 import dev.guru.TransactionService.dto.TransactionRequest;
 import dev.guru.TransactionService.dto.TransactionResponse;
+import dev.guru.TransactionService.service.KafkaService;
 import dev.guru.TransactionService.service.TransactionService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.PageRequest;
@@ -22,9 +23,11 @@ import java.util.List;
 public class TransactionController {
 
     private final TransactionService transactionService;
+    private final KafkaService kafkaService;
 
-    public TransactionController(TransactionService transactionService) {
+    public TransactionController(TransactionService transactionService, KafkaService kafkaService) {
         this.transactionService = transactionService;
+        this.kafkaService = kafkaService;
     }
 
     @PostMapping("/")
@@ -34,6 +37,7 @@ public class TransactionController {
 
         TransactionEntity transactionEntity = transactionService.createTransaction(transactionRequest);
         TransactionResponse transactionResponse = transactionService.convertTransactionToTransactionResponse(transactionEntity,"transaction completed successfully");
+        kafkaService.sendMessage("transactionTopic",transactionResponse);
         return new ResponseEntity<>(transactionResponse, HttpStatus.CREATED);
     }
 
