@@ -69,8 +69,14 @@ public class TransactionService {
         return convertTransactionToTransactionResponse(transaction,"Transaction has been refunded successfully");
     }
 
-    public List<TransactionResponse> getTransactions(Pageable pageRequest) {
-        List<TransactionEntity> transactionEntities = transactionRepository.findAll(pageRequest).getContent();
+    public List<TransactionResponse> getTransactions(Pageable pageRequest,Long senderId) {
+
+        List<TransactionEntity> transactionEntities = null;
+        if(senderId == null)
+            transactionEntities = transactionRepository.findAll(pageRequest).getContent();
+        else
+            transactionEntities = transactionRepository.findBySenderId(senderId,pageRequest).getContent();
+
         List<TransactionResponse> responses = new ArrayList<>();
         for(TransactionEntity transactionEntity : transactionEntities) {
             if(transactionEntity == null)
