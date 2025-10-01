@@ -16,15 +16,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
+    private final KafkaService kafkaService;
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final AuthenticationManager authenticationManager;
 
     @Autowired
-    public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder,AuthenticationManager authenticationManager) {
+    public UserService(UserRepository userRepository,
+                       BCryptPasswordEncoder bCryptPasswordEncoder,
+                       AuthenticationManager authenticationManager,
+                       KafkaService kafkaService) {
         this.userRepository = userRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.authenticationManager = authenticationManager;
+        this.kafkaService = kafkaService;
     }
 
     private UserEntity convertUserRequestToUserEntity(UserRequest userRequest) {
@@ -58,7 +63,6 @@ public class UserService {
 
             return ResponseEntity.ok(userResponse);
         }
-
         return saveUser(userRequest);
     }
 
@@ -71,11 +75,14 @@ public class UserService {
 
     public ResponseEntity<UserResponse> saveUser(UserRequest userRequest) {
         UserEntity userEntity = convertUserRequestToUserEntity(userRequest);
-        userRepository.save(userEntity);
+        userEntity = userRepository.save(userEntity);
         UserResponse userResponse = new UserResponse
-                .Builder().withResult(true)
+                .Builder()
+                .withUserId(userEntity.getId())
+                .withResult(true)
                 .withMessage("User registered successfully!")
                 .build();
+        kafkaService.fireEvent(userResponse);
         return ResponseEntity.ok(userResponse);
     }
 

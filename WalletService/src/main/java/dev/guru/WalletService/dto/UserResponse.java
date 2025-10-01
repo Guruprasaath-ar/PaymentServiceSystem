@@ -1,9 +1,7 @@
-package dev.guru.UserService.dto;
+package dev.guru.WalletService.dto;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class UserResponse {
+
 
     private long userId;
     private boolean result;
@@ -23,12 +21,8 @@ public class UserResponse {
         return result;
     }
 
-    public long getUserId() {
+    public Long getUserId() {
         return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
     }
 
     public String getMessage() {
@@ -38,12 +32,12 @@ public class UserResponse {
     public static class Builder{
         private boolean result;
         private String message;
-        private long userId;
+        private Long userId;
 
         public Builder (){
         }
 
-        public Builder withUserId(long userId){
+        public Builder withUserId(Long userId){
             this.userId = userId;
             return this;
         }

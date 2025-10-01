@@ -31,7 +31,7 @@ public class TransactionService {
                 .withReceiverId(transactionRequest.getReceiverId())
                 .withCurrency(transactionRequest.getCurrency())
                 .withAmount(transactionRequest.getAmount())
-                .withTransactionStatus(TransactionStatus.SUCCESS)
+                .withTransactionStatus(TransactionStatus.PENDING)
                 .build();
         transactionRepository.save(entity);
         return entity;

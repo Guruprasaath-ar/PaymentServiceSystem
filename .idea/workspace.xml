@@ -5,17 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14d9a11b-a636-4964-b088-f6e89ed1a409" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/app_constant/AppConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/config/KafkaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/service/KafkaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/app_constant/AppConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/config/JpaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/config/KafkaConsumerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/controller/WalletController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/domain/Wallet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/dto/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/eventConsumer/UserEventConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/repository/WalletRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/service/WalletManagerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/config/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/config/KafkaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/constant/AppConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/constant/AppConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/controller/TransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/domain/TransactionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/domain/TransactionEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/service/KafkaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/service/KafkaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/service/TransactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/domain/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/domain/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/dto/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/dto/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalletService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WalletService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalletService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/WalletService/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -24,22 +62,55 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/TransactionService&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/OneDrive/Desktop/PaymentServiceSystem/PaymentServiceSystem&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.UserServiceApplication.executor": "Debug",
+    "Spring Boot.WalletServiceApplication.executor": "Debug",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "feature/WalletService",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Lenovo/OneDrive/Desktop/PaymentServiceSystem/PaymentServiceSystem",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="UserServiceApplication" value="STOPPED" />
+              <entry key="WalletServiceApplication" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="RunManager" selected="Spring Boot.UserServiceApplication">
     <configuration name="TransactionServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="TransactionService" />
@@ -71,6 +142,9 @@
       </set>
     </attachedChunks>
   </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="14d9a11b-a636-4964-b088-f6e89ed1a409" name="Changes" comment="" />
@@ -83,10 +157,37 @@
       <workItem from="1758544326744" duration="134000" />
       <workItem from="1758557791651" duration="85000" />
       <workItem from="1759290456830" duration="222000" />
+      <workItem from="1759290690615" duration="6894000" />
+      <workItem from="1759301833117" duration="700000" />
+      <workItem from="1759303254382" duration="729000" />
+      <workItem from="1759311836211" duration="1697000" />
+      <workItem from="1759325005560" duration="1357000" />
+      <workItem from="1759326382960" duration="1923000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

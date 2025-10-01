@@ -31,13 +31,16 @@ public class TransactionController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<?> registerTransaction(@Valid @RequestBody TransactionRequest transactionRequest) throws UnsupportedCurrencyTypeException {
+    public ResponseEntity<?> createTransaction(@Valid @RequestBody TransactionRequest transactionRequest) throws UnsupportedCurrencyTypeException {
         if(!transactionService.validateTransactionRequest(transactionRequest))
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
         TransactionEntity transactionEntity = transactionService.createTransaction(transactionRequest);
+        kafkaService.fireTransactionInitiatedEventToNotify("transactionRequestTopic",transactionRequest);
+
         TransactionResponse transactionResponse = transactionService.convertTransactionToTransactionResponse(transactionEntity,"transaction completed successfully");
-        kafkaService.sendMessage("transactionTopic",transactionResponse);
+        kafkaService.fireTransactionCompletedEventToNotify("transactionResponseTopic",transactionResponse);
+        
         return new ResponseEntity<>(transactionResponse, HttpStatus.CREATED);
     }
 

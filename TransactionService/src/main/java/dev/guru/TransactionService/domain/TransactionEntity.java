@@ -1,7 +1,6 @@
 package dev.guru.TransactionService.domain;
 
 import dev.guru.TransactionService.customExceptions.InvalidRefundException;
-import dev.guru.TransactionService.customExceptions.TransactionNotFoundException;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -126,5 +125,9 @@ TransactionEntity {
             throw new InvalidRefundException("Only successful transactions can be refunded");
 
         transactionStatus = TransactionStatus.REFUNDED;
+    }
+
+    public void markTransactionComplete(){
+        transactionStatus = TransactionStatus.SUCCESS;
     }
 }

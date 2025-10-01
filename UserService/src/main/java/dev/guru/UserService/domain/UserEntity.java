@@ -10,6 +10,7 @@ import java.time.Instant;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 public class UserEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long  id;
@@ -34,6 +35,10 @@ public class UserEntity {
         this.email = builder.email;
         this.password = builder.password;
         this.isVerified = builder.isVerified;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getUserName() {
