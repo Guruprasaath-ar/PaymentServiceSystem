@@ -38,6 +38,7 @@ TransactionEntity {
         this.transactionStatus = builder.transactionStatus;
     }
 
+
     public static class Builder{
         private Long transactionId;
         private Long senderId;

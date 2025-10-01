@@ -15,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+import java.util.Map;
 
 
 @RestController
@@ -37,11 +37,7 @@ public class TransactionController {
 
         TransactionEntity transactionEntity = transactionService.createTransaction(transactionRequest);
         kafkaService.fireTransactionInitiatedEventToNotify("transactionRequestTopic",transactionRequest);
-
-        TransactionResponse transactionResponse = transactionService.convertTransactionToTransactionResponse(transactionEntity,"transaction completed successfully");
-        kafkaService.fireTransactionCompletedEventToNotify("transactionResponseTopic",transactionResponse);
-        
-        return new ResponseEntity<>(transactionResponse, HttpStatus.CREATED);
+        return ResponseEntity.accepted().body(Map.of("transactionId", transactionEntity.getTransactionId()));
     }
 
     @PostMapping("/{id}/refund")

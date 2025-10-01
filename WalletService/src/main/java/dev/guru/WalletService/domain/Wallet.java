@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 
 @Entity
@@ -15,7 +16,7 @@ public class Wallet {
     private Long id;
     @Column(unique = true)
     private Long userId;
-    private double balance;
+    private BigDecimal balance;
     @LastModifiedDate
     private Instant updatedAt;
 
@@ -30,14 +31,14 @@ public class Wallet {
 
     public static class Builder{
         private Long userId;
-        private double balance;
+        private BigDecimal balance;
 
         public Builder withUserId(Long userId){
             this.userId = userId;
             return this;
         }
 
-        public Builder withBalance(double balance){
+        public Builder withBalance(BigDecimal balance){
             this.balance = balance;
             return this;
         }
@@ -63,11 +64,11 @@ public class Wallet {
         this.userId = userId;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
@@ -79,12 +80,12 @@ public class Wallet {
         this.updatedAt = updatedAt;
     }
 
-    public void debit(double balance){
-        this.balance -= balance;
+    public void debit(BigDecimal balance){
+        this.balance = this.balance.subtract(balance);
     }
 
-    public void credit(double balance){
-        this.balance += balance;
+    public void credit(BigDecimal balance){
+        this.balance = this.balance.add(balance);
     }
 
 }

@@ -5,33 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14d9a11b-a636-4964-b088-f6e89ed1a409" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/app_constant/AppConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/config/KafkaConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/service/KafkaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/app_constant/AppConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/config/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/config/JpaConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/config/KafkaConsumerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/controller/WalletController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/domain/Wallet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/dto/UserResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/eventConsumer/UserEventConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/repository/WalletRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/service/WalletManagerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/consumers/EventConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/domain/Currency.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/domain/TransactionStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/dto/TransactionRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/dto/TransactionResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/config/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/config/KafkaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/constant/AppConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/constant/AppConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/controller/TransactionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/domain/TransactionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/domain/TransactionEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/service/KafkaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/service/KafkaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/service/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/domain/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/domain/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/dto/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/dto/UserResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/dev/guru/UserService/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalletService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WalletService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TransactionService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/app_constant/AppConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/app_constant/AppConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/config/KafkaProducerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/domain/Wallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/domain/Wallet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/eventConsumer/UserEventConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/eventConsumer/EventConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/repository/WalletRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/repository/WalletRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/service/WalletManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalletService/src/main/java/dev/guru/WalletService/service/WalletManagerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WalletService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/WalletService/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +32,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -72,6 +62,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.TransactionServiceApplication.executor": "Debug",
     "Spring Boot.UserServiceApplication.executor": "Debug",
     "Spring Boot.WalletServiceApplication.executor": "Debug",
     "extract.method.default.visibility": "private",
@@ -103,6 +94,7 @@
         <entry key="SpringBootApplicationConfigurationType">
           <value>
             <map>
+              <entry key="TransactionServiceApplication" value="STOPPED" />
               <entry key="UserServiceApplication" value="STOPPED" />
               <entry key="WalletServiceApplication" value="STOPPED" />
             </map>
@@ -162,7 +154,8 @@
       <workItem from="1759303254382" duration="729000" />
       <workItem from="1759311836211" duration="1697000" />
       <workItem from="1759325005560" duration="1357000" />
-      <workItem from="1759326382960" duration="1923000" />
+      <workItem from="1759326382960" duration="3970000" />
+      <workItem from="1759334632511" duration="2781000" />
     </task>
     <servers />
   </component>
