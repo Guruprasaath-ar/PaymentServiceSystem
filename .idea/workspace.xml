@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14d9a11b-a636-4964-b088-f6e89ed1a409" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/controller/TransactionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/domain/Currency.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/domain/TransactionEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TransactionService/src/main/java/dev/guru/TransactionService/domain/TransactionStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TransactionService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/TransactionService/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +55,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WalletServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="WalletService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="dev.guru.WalletService.WalletServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -79,6 +82,7 @@
       <workItem from="1758543796154" duration="517000" />
       <workItem from="1758544326744" duration="134000" />
       <workItem from="1758557791651" duration="85000" />
+      <workItem from="1759290456830" duration="222000" />
     </task>
     <servers />
   </component>
